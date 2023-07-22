@@ -21,16 +21,5 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-  nunit-selenium-tests:
-    image: kovalauskis/nunit-selenium-grid
-    depends_on:
-      - chrome
-      - firefox
-    environment:
-      - SE_EVENT_BUS_HOST=hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - BROWSER=chrome
-      - CATEGORY=Smoke
     volumes:
       - ./output/test-results:/usr/share/test-output
