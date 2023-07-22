@@ -3,25 +3,25 @@ pipeline{
 	stages{
 		stage("Pull Latest Image"){
 			steps{
-				sh "docker pull kovalauskis/nunit-selenium-grid"
+				bat "docker pull kovalauskis/nunit-selenium-grid"
 			}
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d hub chrome firefox"
+				bat "docker-compose up -d hub chrome firefox"
 			}
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up nunit-selenium-tests"
+				bat "docker-compose up nunit-selenium-tests"
 			}
 		}
 	}
 	post{
 		always{
 			archiveArtifacts artifacts: 'output/**'
-			sh "docker-compose down"
-			sh "sudo rm -rf output/"
+			bat "docker-compose down"
+			bat "sudo rm -rf output/"
 		}
 	}
 }
