@@ -33,4 +33,4 @@ services:
       - BROWSER=chrome
       - CATEGORY=Smoke
     volumes:
-      - ./output:C:\Users\roberts.kovalauskis\Desktop\test-output
+      - C:\Users\roberts.kovalauskis\Desktop\test-output:/usr/share/test-output
