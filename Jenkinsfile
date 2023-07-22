@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage("Run Test"){
 			steps{
-				bat "docker-compose up nunit-selenium-tests"
+				bat "docker run -e CATEGORY=Smoke -v ./output/test-results:/usr/share/test-output kovalauskis/nunit-selenium-grid"
 			}
 		}
 	}
